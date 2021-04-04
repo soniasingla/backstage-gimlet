@@ -1,3 +1,5 @@
 # [Backstage](https://backstage.io)
 
-This is your newly scaffolded Backstage App, Good Luck!
+## How to start the app locally?
+
+`yarn dev`
