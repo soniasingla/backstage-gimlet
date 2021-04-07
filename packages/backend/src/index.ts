@@ -25,6 +25,7 @@ import scaffolder from './plugins/scaffolder';
 import proxy from './plugins/proxy';
 import techdocs from './plugins/techdocs';
 import { PluginEnvironment } from './types';
+import kubernetes from './plugins/kubernetes';
 
 function makeCreateEnv(config: Config) {
   const root = getRootLogger();
@@ -63,6 +64,9 @@ async function main() {
   apiRouter.use('/techdocs', await techdocs(techdocsEnv));
   apiRouter.use('/proxy', await proxy(proxyEnv));
   apiRouter.use(notFoundHandler());
+  const kubernetesEnv = useHotMemoize(module, () => createEnv('kubernetes'));
+
+apiRouter.use('/kubernetes', await kubernetes(kubernetesEnv));
 
   const service = createServiceBuilder(module)
     .loadConfig(config)
