@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: dice-roller
+  name: backstage-gimlet
   description: An example of a Backstage application.
   annotations:  
    'backstage.io/kubernetes-id': dice-roller
