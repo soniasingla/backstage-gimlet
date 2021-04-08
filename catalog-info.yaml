@@ -2,6 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: backstage-gimlet
+  namespace: default
   description: An example of a Backstage application.
   annotations:  
     'backstage.io/kubernetes-id': backstage-gimlet
