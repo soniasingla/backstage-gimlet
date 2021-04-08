@@ -52,16 +52,6 @@ import {
 import { EmbeddedDocsRouter as DocsRouter } from '@backstage/plugin-techdocs';
 import { Router as KubernetesRouter } from '@backstage/plugin-kubernetes';
 
-const ServiceEntityPage = ({ entity }: { entity: Entity }) => (
-  <EntityPageLayout>
-    <EntityPageLayout.Content
-      path="/kubernetes/*"
-      title="Kubernetes"
-      element={<KubernetesRouter entity={entity} />}
-    />
-  </EntityPageLayout>
-);
-
 const CICDSwitcher = ({ entity }: { entity: Entity }) => {
   // This component is just an example of how you can implement your company's logic in entity page.
   // You can for example enforce that all components of type 'service' should use GitHubActions
@@ -107,8 +97,13 @@ const ComponentApisContent = ({ entity }: { entity: Entity }) => (
   </Grid>
 );
 
-const ServiceEntityPage = ({ entity }: { entity: Entity }) => (
-  <EntityPageLayout>
+  const ServiceEntityPage = ({ entity }: { entity: Entity }) => (
+    <EntityPageLayout>
+      <EntityPageLayout.Content
+        path="/kubernetes/*"
+        title="Kubernetes"
+        element={<KubernetesRouter entity={entity} />}
+      />
     <EntityPageLayout.Content
       path="/"
       title="Overview"

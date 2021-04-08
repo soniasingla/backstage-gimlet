@@ -100,20 +100,14 @@ catalog:
       target: https://github.com/backstage/backstage/blob/master/plugins/scaffolder-backend/sample-templates/docs-template/template.yaml
       rules:
         - allow: [Template]
-  kubernetes:
+
+kubernetes:
   serviceLocatorMethod:
     type: 'multiTenant'
   clusterLocatorMethods:
     - type: 'config'
       clusters:
-        - url: http://127.0.0.1:9999
-          name: minikube
+        - url: https://0.0.0.0:50367
+          name: k3d
           authProvider: 'serviceAccount'
-          serviceAccountToken:
-            $env: K8S_MINIKUBE_TOKEN
-        - url: http://127.0.0.2:9999
-          name: aws-cluster-1
-          authProvider: 'aws'
-    - type: 'gke'
-      projectId: 'gke-clusters'
-      region: 'europe-west1'
+          serviceAccountToken: 'eyJhbGciOiJSUzI1NiIsImtpZCI6InhxbEJTMUk3ZGpzLUg2Nks5S0g2ZXJwVGNNV09BcjQ0cUY4YUhTbjZzNVEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlZmF1bHQtdG9rZW4tczR4ZGMiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVmYXVsdCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjFhYjg4NDZlLTQyYzYtNDFmNS04MTE2LTBiMWE1Mjk1OGUwZSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpkZWZhdWx0OmRlZmF1bHQifQ.JnuHZ_G0uNb3JpKRoXVhsRflQDcq19sUuWiiOtsoxfEaTDwHn76WhdhGwLBi7Ns4kf1LEdkiakfbCIMF89LD5FYAOR7bg2PtFQEFrUfqHEfkzCa_RKmd6wJPLTHUqTV4W0iZRk8q3ILH7cPkt1xpPzDi02hQoGyIKGCXv8qByD8wJSHbIfGUmVUvdgWKo3qFccHrwM-jI7hayytRnGeKO1zRjrp1DPiQQvqYsGdk-g-sUDjWVKzciEKzMYq4oGQCe-I41gcJfwm1Oz2ToQaovqwSGkOcLojfYDbkTB98rjRlaKyQvgRWbF5vKqyHbii3WMb7nyJoWuRjr0RXQ5bhiw'
