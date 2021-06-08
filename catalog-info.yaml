@@ -1,15 +1,13 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: backstage-gimlet
-  description: An example of a Backstage application.
-  annotations:  
+  name: dice-roller
+  description: It rolls dice
+  tags:
+    - go
+  annotations:
     'backstage.io/kubernetes-id': dice-roller
-  # Example for optional annotations
-  # annotations:
-    # github.com/project-slug: backstage/backstage
-    # backstage.io/techdocs-ref: url:https://github.com/backstage/backstage
 spec:
-  type: website
-  owner: soniasingla.com
-  lifecycle: experimental
+  type: service
+  lifecycle: production
+  owner: guest
